@@ -35,7 +35,6 @@ def single_mode(sysargs):
 
 
 def multi_mode():
-    print(f"Do multiple files in directory")
     multi_files = Checker_Multiple.Filer_multi()
     multi_files.make_and_convert_file_list()
     return
