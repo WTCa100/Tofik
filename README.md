@@ -59,10 +59,17 @@ Note that you are prohibited to use "." and any other prohibited symbols in [Fil
 There are only two avilable path locations: </br>
 <b> -x </b> - This will output the provided files inside ./xlsxRawFiles/ </br>
 <b> -c </b> - This will output the provided files inside ./csvOutFiles/ </br>
+<b> -h </b> - Help page, with the list of all paths and usage examples.
+# Example usage:
+```PowerShell
+.\FileSpammer 10 MakeIt Rain -x # This will output 10 MakeIt.Rain files in .\xlsxRawFiles\
+.\FileSpammer 5 Dummy Dum -c # This will output 5 Dummy.Dum files in .\csvOutFiles\
+```
 When we get into the details you may see that the file creation works in pretty easy to get way: <br>
 Inside `Spam` Class we have `CreateExtendedFiles` method.
 ```C++
   i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')';
+  tmpFile.close();
 ```
 # Troubleshooting or contact
 If you encounter any type of problems in running the program please feel free to contact/start new issue.
