@@ -109,7 +109,8 @@ int main(int argc, char** argv)
     }
     if(!bCheckpath(static_cast<std::string> (argv[4])))
     {
-        std::cout << "Error: " << argv[4] << " is not recognized as any avilable path modes\n";
+        std::cout << "Error: " << argv[4] << " is not recognized as any avilable path modes.\n";
+        std::cout << "Type \'.\\FileSpammer -h\' for mor information";
         return 0;
     }
     std::cout << "Creating "<< argv[1] << " files...\n";

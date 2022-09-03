@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="451caac7-7c07-46ad-86df-0ecb3ccd7a9f" name="Changes" comment="Changed file validator algorithm to match the single version.">
+    <list default="true" id="451caac7-7c07-46ad-86df-0ecb3ccd7a9f" name="Changes" comment="Added 2 error exception catches.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tester.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tester.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662232849092</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added 2 error exception catches.">
+      <created>1662233631745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662233631745</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +90,7 @@
     <MESSAGE value="Fixed the searching algorithm in Checker_single.py" />
     <MESSAGE value="Additional tweaks to file validation in single_checker" />
     <MESSAGE value="Changed file validator algorithm to match the single version." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed file validator algorithm to match the single version." />
+    <MESSAGE value="Added 2 error exception catches." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 2 error exception catches." />
   </component>
 </project>
