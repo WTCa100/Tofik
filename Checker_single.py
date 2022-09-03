@@ -10,9 +10,11 @@ class Filer:
         self.str_file_name = name_value
 
     def check_file_name(self):
-        indexLastDot = self.str_file_name.rfind(".")
-        strActExt = self.str_file_name[indexLastDot:]
-        if indexLastDot == -1 or re.search(strActExt, "\.xlsx") is None: # Yes it's overcomplicated
+        index_last_dot = self.str_file_name.rfind(".")
+        if index_last_dot == -1:
+            return False
+        str_act_ext = self.str_file_name[index_last_dot:]
+        if re.search("\.xlsx", str_act_ext) is None:
             return False
         return True
 
