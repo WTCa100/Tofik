@@ -1,11 +1,15 @@
 # Tofik
-Tofik is a small and very simple .xlsx to .csv file converter that i decdied to create in order to be able to quickly convert great ammount of .xlsx files into .csv
+Tofik is a small and very simple `.xlsx` to `.csv` file converter that i decdied to create in order to be able to quickly convert great ammount of .xlsx files into .csv
 Generally I decided to create it for my personal usage only but if anyone wish to use it, just feel free to do it.
 
 ## Dependencies
 
-Tofik converter is currently using the following external modules: Pandas, Numpy, Pytz, Python-dateutil, Six. </br>
+Tofik converter is currently using the following external modules: `Pandas`, `Numpy`, `Pytz`, `Python-dateutil`, `Six`. </br>
 You can use pip to download all of them via single command line.
+```PowerShell
+pip install pandas
+```
+In addition it is required to use `openpyxl` to use `-m` mode in Tofik. You can easliy download it via pip just like pandas.
 ```PowerShell
 pip install pandas
 ```
@@ -24,14 +28,14 @@ In order to use Tofik.py which is the actual converter, you will need to provide
 py Tofik.py -mode [optionally the name of the file with .xlsx extention]
 ```
 The program containt 3 modes that can be accessed: <br>
-<b> -s</b> - Single-mode that will only convert one selected by user file. Addictionally you can provide the file name after the single mode selection.
+<b> `-s`</b> - Single-mode that will only convert one selected by user file. Addictionally you can provide the file name after the single mode selection.
 If no file name has been provided the program will prompt the user to input a valid .xlsx file later on. </br>
 <b>Example usage:</b>
 ```PowerShell
 py Tofik.py -s ConvertMe.xlsx
 ```
 
-<b> -m</b> - Multi-mode that will only require no futher input,and will convert every file in /xlsxRawFiles directory. </br>
+<b> `-m`</b> - Multi-mode that will only require no futher input,and will convert every file in /xlsxRawFiles directory. </br>
 <b>Example Usage:</b>
 ```PowerShell
 py Tofik.py -m
@@ -57,9 +61,9 @@ FileSpammer.exe [Number of files] [Name of the files] [Files extention] -[path l
 ```
 Note that you are prohibited to use "." and any other prohibited symbols in [File extention] and [File name] argument </br>
 There are only two avilable path locations: </br>
-<b> -x </b> - This will output the provided files inside ./xlsxRawFiles/ </br>
-<b> -c </b> - This will output the provided files inside ./csvOutFiles/ </br>
-<b> -h </b> - Help page, with the list of all paths and usage examples.
+<b> `-x` </b> - This will output the provided files inside ./xlsxRawFiles/ </br>
+<b> `-c` </b> - This will output the provided files inside ./csvOutFiles/ </br>
+<b> `-h` </b> - Help page, with the list of all paths and usage examples.
 # Example usage:
 ```PowerShell
 .\FileSpammer 10 MakeIt Rain -x # This will output 10 MakeIt.Rain files in .\xlsxRawFiles\
