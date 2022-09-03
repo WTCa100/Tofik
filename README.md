@@ -62,27 +62,7 @@ There are only two avilable path locations: </br>
 When we get into the details you may see that the file creation works in pretty easy to get way: <br>
 Inside `Spam` Class we have `CreateExtendedFiles` method.
 ```C++
-void Spam::CreateExtendedFiles()
-{
-    if(this->strP == "-x")
-    {
-        for(int i = 0; i < this->nQuantity; i++)
-        {
-            std::ofstream tmpFile;
-            i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')');
-            tmpFile.close();
-        }
-    }
-    else
-    {
-         for(int i = 0; i < this->nQuantity; i++)
-        {
-            std::ofstream tmpFile;
-            i == 0 ? tmpFile.open(FileOutputPathCSV + this->strFinalFileName) : tmpFile.open(FileOutputPathCSV + this->strFinalFileName + '(' + std::to_string(i+1) + ')');
-            tmpFile.close();
-        }       
-    }
-}
+  i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')';
 ```
 # Troubleshooting or contact
 If you encounter any type of problems in running the program please feel free to contact/start new issue.
