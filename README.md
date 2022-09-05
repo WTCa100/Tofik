@@ -69,11 +69,24 @@ There are only two avilable path locations: </br>
 .\FileSpammer 10 MakeIt Rain -x # This will output 10 MakeIt.Rain files in .\xlsxRawFiles\
 .\FileSpammer 5 Dummy Dum -c # This will output 5 Dummy.Dum files in .\csvOutFiles\
 ```
-When we get into the details you may see that the file creation works in pretty easy to get way: <br>
+When we get into the details you may see that the `non-.xlsx` file creation works in pretty easy to get way: <br>
 Inside `Spam` Class we have `CreateExtendedFiles` method.
 ```C++
   i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')';
   tmpFile.close();
+```
+The `.xlsx` file creation is quite different than the other extentions. Since there is no external library required and the premise was to make it as
+simple as possible it uses quite an bizzare technique. In folder `exlTemplate` there is a file simply named `template.xlsx`, the program takes it as... well
+template and copies it N times (where N is the user defined value).
+# Path-finding
+```C++
+    const std::string strXlsxPathX = "xlsxRawFiles\\"; // For system(const char* _Command)
+    const std::string strXlsxPathC = "csvOutFiles\\";  // For system(const char* _Command)   
+```
+# Copying
+```C++
+     std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
+     system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());  
 ```
 # Troubleshooting or contact
 If you encounter any type of problems in running the program please feel free to contact/start new issue.
