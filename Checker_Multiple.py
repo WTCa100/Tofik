@@ -10,7 +10,13 @@ class Filer_multi:
         self.str_xlsx_folder_path = str_custom_path
 
     def check_file(self, item):
-        return re.search(".+\.xlsx", item)
+        index_last_dot = item.rfind(".")
+        if index_last_dot == -1:
+            return False
+        item_ext = item[index_last_dot:]
+        if re.search("\.xlsx", item_ext) is None:
+            return False
+        return True
 
     def make_and_convert_file_list(self):
         files_set = set(os.listdir(self.str_xlsx_folder_path))
