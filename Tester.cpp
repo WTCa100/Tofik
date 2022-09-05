@@ -57,12 +57,12 @@ void Spam::CreateExtendedXLSXFiles()
         {
             if(i == 0)
             {
-                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
                 system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());                   
             }
             else
             {
-                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
                 system((strCommandCopy + strXlsxPathX + this->strFileName + "(" + std::to_string(i+1) + ")" + this->strFileExtention).c_str());                    
             }
         }
@@ -73,12 +73,12 @@ void Spam::CreateExtendedXLSXFiles()
         {
             if(i == 0)
             {
-                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
                 system((strCommandCopy + strXlsxPathC + this->strFileName + this->strFileExtention).c_str());                   
             }
             else
             {
-                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
                 system((strCommandCopy + strXlsxPathC + this->strFileName + "(" + std::to_string(i+1) + ")" + this->strFileExtention).c_str());                    
             }
         }        
