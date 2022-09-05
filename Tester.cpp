@@ -1,10 +1,10 @@
 #include <string>
 #include <fstream>
-#include <filesystem>
+#include <windows.h>
 #include <iostream>
 
-const std::string FileOutputPathXLSX = "xlsxRawFiles/";
-const std::string FileOutputPathCSV = "csvOutFiles/";
+const std::string FileOutputPathXLSX = "xlsxRawFiles/"; // For fstream args
+const std::string FileOutputPathCSV = "csvOutFiles/";   // For fstream args
 const std::string strBannableChars = "\"/\\<>?:*|";
 const std::string strSemiBannableChars = "-_., \'";
 
@@ -15,12 +15,14 @@ class Spam
         std::string strFileName;
         std::string strFileExtention;
         std::string strLocation;
-        std::string strFinalFileName;
-        std::string CreateFinalName(std::string Name, std::string Ext);
+        std::string FixExtention();
         std::string strP;
+        bool bIsExtXlsx;
     public:
+        bool isXlsx() {return bIsExtXlsx;}
         Spam(int nQty, std::string strName, std::string strExt, std::string strPath);
         void CreateExtendedFiles();
+        void CreateExtendedXLSXFiles();
 };
 
 void Spam::CreateExtendedFiles()
@@ -31,7 +33,7 @@ void Spam::CreateExtendedFiles()
         {
             
             std::ofstream tmpFile;
-            i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')');
+            i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFileName + this->strFileExtention) : tmpFile.open(FileOutputPathXLSX + this->strFileName + '(' + std::to_string(i+1) + ')' + this->strFileExtention);
             tmpFile.close();
         }
     }
@@ -40,17 +42,54 @@ void Spam::CreateExtendedFiles()
          for(int i = 0; i < this->nQuantity; i++)
         {
             std::ofstream tmpFile;
-            i == 0 ? tmpFile.open(FileOutputPathCSV + this->strFinalFileName) : tmpFile.open(FileOutputPathCSV + this->strFinalFileName + '(' + std::to_string(i+1) + ')');
+            i == 0 ? tmpFile.open(FileOutputPathCSV + this->strFileName + this->strFileExtention) : tmpFile.open(FileOutputPathCSV + this->strFileName + '(' + std::to_string(i+1) + ')' + this->strFileExtention);
             tmpFile.close();
         }       
     }
-    
+}
+void Spam::CreateExtendedXLSXFiles()
+{
+    const std::string strXlsxPathX = "xlsxRawFiles\\"; // For system(const char* _Command)
+    const std::string strXlsxPathC = "csvOutFiles\\";  // For system(const char* _Command)   
+    if(this->strP == "-x")
+    {
+        for(int i = 0; i < this->nQuantity; i++)
+        {
+            if(i == 0)
+            {
+                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());                   
+            }
+            else
+            {
+                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                system((strCommandCopy + strXlsxPathX + this->strFileName + "(" + std::to_string(i+1) + ")" + this->strFileExtention).c_str());                    
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < this->nQuantity; i++)
+        {
+            if(i == 0)
+            {
+                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                system((strCommandCopy + strXlsxPathC + this->strFileName + this->strFileExtention).c_str());                   
+            }
+            else
+            {
+                std::string strCommandCopy = "copy XLSXtemplate\\template.xlsx ";
+                system((strCommandCopy + strXlsxPathC + this->strFileName + "(" + std::to_string(i+1) + ")" + this->strFileExtention).c_str());                    
+            }
+        }        
+    }
 }
 
-std::string Spam::CreateFinalName(std::string Name, std::string Ext)
+std::string Spam::FixExtention()
 {
-    return Name + '.' + Ext;
+    return "." + this->strFileExtention; 
 }
+
 Spam::Spam(int nQty, std::string strName, std::string strExt, std::string strPath)
 {
     this->nQuantity = nQty;
@@ -58,7 +97,8 @@ Spam::Spam(int nQty, std::string strName, std::string strExt, std::string strPat
     this->strFileExtention = strExt;
     this->strLocation = strPath;
     this->strP = strPath;
-    this->strFinalFileName = this->CreateFinalName(this->strFileName, this->strFileExtention);
+    this->strFileExtention = this->FixExtention();
+    this->strFileExtention == ".xlsx" ? this->bIsExtXlsx = true : this->bIsExtXlsx = false;
 }
 bool bCheckIfNumber(std::string strCheck);
 bool bCheckExtNames(std::string strCheckMyExt);
@@ -114,7 +154,7 @@ int main(int argc, char** argv)
     }
     std::cout << "Creating "<< argv[1] << " files...\n";
     Spam* MakeItRain = new Spam(std::stoi(static_cast<std::string>(argv[1])), static_cast<std::string>(argv[2]), static_cast<std::string>(argv[3]), static_cast<std::string>(argv[4]));
-    MakeItRain->CreateExtendedFiles();
+    MakeItRain->isXlsx() ? MakeItRain->CreateExtendedXLSXFiles() : MakeItRain->CreateExtendedFiles();
     delete MakeItRain;
     std::cout << "Files have been created!\n";
     return 0;
