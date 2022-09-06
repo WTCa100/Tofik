@@ -11,7 +11,7 @@ pip install pandas
 ```
 In addition it is required to use `openpyxl` to use `-m` mode in Tofik. You can easliy download it via pip just like pandas.
 ```PowerShell
-pip install pandas
+pip install openpyxl
 ```
 
 # Converter
