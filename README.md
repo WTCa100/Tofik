@@ -1,5 +1,5 @@
 # Tofik
-Tofik is a small and very simple `.xlsx` to `.csv` file converter that i decdied to create in order to be able to quickly convert great ammount of .xlsx files into .csv
+Tofik is a small and very simple `.xlsx` to `.csv` file converter that i deided to create in order to be able to quickly convert great ammount of .xlsx files into .csv
 Generally I decided to create it for my personal usage only but if anyone wish to use it, just feel free to do it.
 
 ## Dependencies
