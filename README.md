@@ -20,7 +20,7 @@ The entire project comes with few files as you may have seen.
 - Tofik.py
 - Utilities.py
 - Checker_single|Checker_Multiple.py
-- Tester.cpp and FileSpammer.exe
+- Tester.cpp and FileSpammer.exe (on release)
 
 ## Tofik.py
 In order to use Tofik.py which is the actual converter, you will need to provide neccessery information to it.
@@ -52,41 +52,6 @@ def actual_convert(self, path_in = ".\\xlsxRawFiles\\", path_out=".\\csvOutFiles
 <b>Checkers</b> - Checkers have usually the same functionality, it checks wether or not a file is eligible to be converted by checking it extention. The difference
 between Single and Multiple mode is that the Checker_Multiple.py converts the set of files within it's class whereas Checker_Single didn't.
 I decided to make such distinction since it was easier to get a head around the code and does not require to pass a big set of .xlsx objects.
-## Tester.cpp and FileSpammer.exe
-In order to check how the program works I decided to create a different small program that will spam, a bunch of barren files with user defined extentions. 
-FileSpammer.exe is basically compiled Tester.cpp that I decided to include in the project. </br>
-<b>Usage:</b>
-```PowerShell
-FileSpammer.exe [Number of files] [Name of the files] [Files extention] -[path location]
-```
-Note that you are prohibited to use "." and any other prohibited symbols in [File extention] and [File name] argument </br>
-There are only two avilable path locations: </br>
-<b> `-x` </b> - This will output the provided files inside ./xlsxRawFiles/ </br>
-<b> `-c` </b> - This will output the provided files inside ./csvOutFiles/ </br>
-<b> `-h` </b> - Help page, with the list of all paths and usage examples.
-# Example usage:
-```PowerShell
-.\FileSpammer 10 MakeIt Rain -x # This will output 10 MakeIt.Rain files in .\xlsxRawFiles\
-.\FileSpammer 5 Dummy Dum -c # This will output 5 Dummy.Dum files in .\csvOutFiles\
-```
-When we get into the details you may see that the `non-.xlsx` file creation works in pretty easy to get way: <br>
-Inside `Spam` Class we have `CreateExtendedFiles` method.
-```C++
-  i == 0 ? tmpFile.open(FileOutputPathXLSX + this->strFinalFileName) : tmpFile.open(FileOutputPathXLSX + this->strFinalFileName + '(' + std::to_string(i+1) + ')';
-  tmpFile.close();
-```
-The `.xlsx` file creation is quite different than the other extentions. Since there is no external library required and the premise was to make it as
-simple as possible it uses quite an bizzare technique. In folder `exlTemplate` there is a file simply named `template.xlsx`, the program takes it as... well
-template and copies it N times (where N is the user defined value).
-# Path-finding
-```C++
-    const std::string strXlsxPathX = "xlsxRawFiles\\"; // For system(const char* _Command)
-    const std::string strXlsxPathC = "csvOutFiles\\";  // For system(const char* _Command)   
-```
-# Copying
-```C++
-     std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
-     system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());  
-```
+
 # Troubleshooting or contact
 If you encounter any type of problems in running the program please feel free to contact/start new issue.
