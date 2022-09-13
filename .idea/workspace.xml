@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="451caac7-7c07-46ad-86df-0ecb3ccd7a9f" name="Changes" comment="Added 2 error exception catches.">
+    <list default="true" id="451caac7-7c07-46ad-86df-0ecb3ccd7a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_3_2022_6_40_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_3_2022_6_40_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSpammer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpammer.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tester.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tester.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XLSXtemplate/template.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/exlTemplate/template.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
