@@ -58,7 +58,8 @@ void Spam::CreateExtendedXLSXFiles()
             if(i == 0)
             {
                 std::string strCommandCopy = "copy exlTemplate\\template.xlsx ";
-                system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());
+                std::cout << (strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention) << std::endl;
+                system((strCommandCopy + strXlsxPathX + this->strFileName + this->strFileExtention).c_str());                   
             }
             else
             {
