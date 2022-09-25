@@ -1,0 +1,4 @@
+/csvOutFiles/*
+/xlsxRawFiles/*
+/_pycache_/
+/.idea/
